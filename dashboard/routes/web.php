@@ -4,16 +4,36 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CartController;
+use App\Http\Middleware\userAuth;
 use Illuminate\Support\Facades\Route;
 // ***********************************************************
 // Route Products
 // ***********************************************************
-Route::get('/', function () {
-    return view('admin.user.login');
-})->name('admin.user.login');
+// Route::get('/', function () {
+//     return view('client.home.index');
+// })->name('admin.user.login');
+
 Route::get('admin/dashboard',[DashboardController::class ,'index'])->name('admin.dashboard.index');
+Route::middleware([userAuth::class])->group(function () {
+Route::post('/cart/add/{productId}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::post('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');
+Route::delete('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.remove');
+Route::get('/',[HeaderController::class ,'index'])->name('client.home.index');
+Route::get('client/shop/',[ShopController::class ,'index'])->name('client.shop.index');
+Route::get('client/cart/',[CartController::class ,'index'])->name('client.cart.index');
+Route::post('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');
+Route::delete('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.remove');
+
+});
+Route::post('client/login',[UserController::class ,'login'])->name('client.login.index');
+Route::get('client/login',[UserController::class ,'show_login'])->name('client.show_login.index');
+Route::get('client/register',[UserController::class ,'show_client'])->name('client.register.index');
+Route::get('client/logout',[UserController::class ,'logout'])->name('client.logout.index');
 Route::get('admin/products',[ProductController::class ,'index'])->name('admin.products.index');
 Route::get('admin/products/create',[ProductController::class ,'create'])->name('admin.products.create');
 Route::get('admin/products/{id}',[ProductController::class ,'edit'])->name('admin.products.edit');
@@ -21,6 +41,7 @@ Route::POST('admin/products/store',[ProductController::class ,'store'])->name('a
 Route::put('admin/products/update/{id}', [ProductController::class, 'update'])->name('admin.products.update');
 Route::DELETE('admin/products/destroy/{id}',[ProductController::class ,'destroy'])->name('admin.products.destroy');
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('admin.products.show');
+Route::get('/admin/products/getdata', [ProductController::class, 'getdata'])->name('admin.products.getdata');
 
 Route::get('admin/categorys',[CategoryController::class ,'index'])->name('admin.categorys.index');
 Route::get('admin/categorys/create',[CategoryController::class ,'create'])->name('admin.categorys.create');

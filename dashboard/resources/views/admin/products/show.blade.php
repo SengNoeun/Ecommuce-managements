@@ -7,7 +7,7 @@
   <section class="container mx-auto px-4">
     <div class="flex flex-wrap -mx-4">
       <!-- Left column -->
-      <div class="w-full lg:w-7/12 px-4 h-[663px]">
+      <div class="w-full lg:w-7/12 px-4 h-[600px]">
         <div class="" data-media-type="vertical-thumbnail">
             <div class="float-left  p-[14px]">
               <div class="float-left space-y-3 ">
@@ -18,7 +18,7 @@
                 @if ($images)
                         @foreach ($images as $img)
                             <img 
-                                 class="swiper-slide product-single__image-item">
+                                 class="">
                                  <img loading="lazy" class="h-auto w-[104px]" src="{{ asset('storage/' . $img) }}" 
                                  alt="{{ $product->name }}"  />
                         @endforeach
@@ -32,7 +32,7 @@
               </div>
           </div>
                 <!-- Slide -->
-                <div class="float-left mt-[3px]"> ">
+                <div class="float-left mt-[3px]">
                   @php
                      $images = json_decode($product->image, true);
                     $images = is_array($images) ? array_slice($images, 0, 1) : [];
@@ -40,7 +40,7 @@
                 @if ($images)
                         @foreach ($images as $img)
                             <img 
-                                 class="swiper-slide product-single__image-item">
+                                 class="">
                                  <img loading="lazy"  class="h-auto"  width="400" height="400" src="{{ asset('storage/' . $img) }}" 
                                  alt="{{ $product->name }}"  />
                         @endforeach
@@ -56,16 +56,16 @@
             
                 
               <!-- Swiper buttons -->
-              <div class="swiper-button-prev">
+              {{-- <div class="swiper-button-prev">
                 <svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
                   <use href="#icon_prev_sm" />
                 </svg>
-              </div>
-              <div class="swiper-button-next">
+              </div> --}}
+              {{-- <div class="swiper-button-next">
                 <svg width="7" height="11" viewBox="0 0 7 11" xmlns="http://www.w3.org/2000/svg">
                   <use href="#icon_next_sm" />
                 </svg>
-              </div>
+              </div> --}}
             </div>
           </div>
           <!-- Thumbnails -->
@@ -98,6 +98,7 @@
         <div class="text-xl font-bold text-red-600 mb-4  line-through"> ${{ number_format($product->price, 2) }}</div>
         <div class="text-xl font-bold text-red-600 mb-4"> %{{ number_format($product->discount, 2) }}</div>
         <div class="text-xl font-bold text-red-600 mb-4"> ${{ number_format($product->price_after_discount, 2) }}</div>
+        
         <div class="text-gray-700 mb-4">
           <p>{{ $product->description ?? 'N/A' }}</p>
         </div>

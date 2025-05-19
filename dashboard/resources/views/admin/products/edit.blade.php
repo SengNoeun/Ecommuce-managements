@@ -315,4 +315,10 @@
             }
         });
     });
+    // Close Modal
+   $(document).on('click', '#closeModal, #cancelModal', function () {
+    console.log('Close or cancel button clicked'); // DEBUG
+    $('#modalOverlay').addClass('hidden');
+    $('#modalContent').empty();
+    });
 </script>

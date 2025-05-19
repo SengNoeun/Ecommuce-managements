@@ -246,6 +246,20 @@ public function destroy($id)
     }
     
 }
-
+public function getdata(Request $request)
+{
+    if ($request->has('id')) {
+        $id = $request->input('id');
+        $product = Product::find($id);
+        if ($product) {
+            return response()->json($product);
+        } else {
+            return response()->json(['error' => 'Product not found'], 404);
+        }
+    } else {
+        $products = Product::all();
+        return response()->json($products);
+    }
+}
 }
 

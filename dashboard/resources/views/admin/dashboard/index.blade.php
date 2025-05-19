@@ -212,7 +212,49 @@
             <p>Inquiries</p>
         </div>
     </div>
-
+  <div class="container mx-auto p-6">
+        <div class="overflow-x-auto bg-white shadow-md rounded-lg">
+            <table class="min-w-full table-auto">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="py-3 px-6 text-left text-sm font-medium text-gray-700">ID</th>
+                        <th class="py-3 px-6 text-left text-sm font-medium text-gray-700">User id</th>
+                        <th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Product id</th>
+                        <th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Product name</th>
+                        <th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Image</th>
+                        <th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Price</th>
+                        <th class="py-3 px-6 text-left text-sm font-medium text-gray-700">QTY</th>
+                        <th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($cartItems as $order)
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="py-3 px-6 text-sm text-gray-800">{{ $order->id }}</td>
+                            <td class="py-3 px-6 text-sm text-gray-800">{{ $order->user_id }}</td>
+                            <td class="py-3 px-6 text-sm text-gray-800">{{ $order->product_id }}</td>
+                            <td class="py-3 px-6 text-sm text-gray-800">{{ $order->price }}</td>
+                            <td class="py-3 px-6 text-sm text-gray-800">{{ $order->quantity}}</td>
+                            <td class="py-3 px-6 text-sm text-gray-800">{{ $order->subtotal}}</td>
+                           
+                            {{-- <td class="py-3 px-6">
+                                @if ($slide->image && Storage::disk('public')->exists($slide->image))
+                                    <img src="{{ Storage::url($slide->image) }}" 
+                                         class="w-20 h-20 object-cover rounded-md border" 
+                                         alt="slide Image">
+                                @else
+                                    <img src="{{ asset('images/placeholder.jpg') }}" 
+                                         class="w-20 h-20 object-cover rounded-md border" 
+                                         alt="No Image">
+                                @endif
+                            </td> --}}
+                            
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
     <!-- New Table Section -->
     
 </div>

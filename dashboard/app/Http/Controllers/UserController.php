@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,6 +16,10 @@ class UserController extends Controller
     {
         $users = User::all();
         return view('admin.user.index', compact('users'));
+    }
+    public function show_client()
+    {
+        return view('client.register.index');
     }
 
     public function create()
@@ -147,5 +152,33 @@ class UserController extends Controller
 
             return redirect()->back()->with('error', 'Failed to delete user: ' . $e->getMessage());
         }
+    }
+    public function show_login()
+    {
+        return view('client.login.index');
+        
+    }
+    public function login(Request $request)
+    {
+        $name = $request->input('name');
+        $email = $request->input('email');
+       $users=DB::table('user')->where('name', $name)->where('email',$email)->first();
+        if ($users) {
+           $userid=$users->id;
+           $name=$users->name;
+           session(['ID' => $userid, 'NAME' => $name]);
+              return redirect()->route('client.home.index')->with('success', 'Login successful');
+        } else {
+            return redirect()->route('client.login.index')->with('error', 'User not found');
+        }
+       
+    }
+    public function logout(Request $request)
+    {
+        // Clear the session
+        $request->session()->flush();
+
+        // Redirect to the login page
+        return redirect()->route('client.login.index')->with('success', 'Logged out successfully');
     }
 }

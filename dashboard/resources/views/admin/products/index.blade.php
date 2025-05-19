@@ -112,7 +112,7 @@
 
     <!-- Delete Confirmation Popup -->
     <div id="deleteConfirmationPopup" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white rounded-lg shadow-xl p-6 w-[90%] max-w-md">
+        <div class=" rounded-lg shadow-xl p-6 w-[90%] max-w-md">
             <h3 class="text-lg font-semibold text-gray-800 mb-4">Confirm Deletion</h3>
             <p class="text-gray-600 mb-6" id="deleteMessage">Are you sure you want to delete this product? This action cannot be undone. <br><strong>Deletion Date: <span id="deleteDate"></span></strong></p>
             <div class="flex justify-end space-x-3">
