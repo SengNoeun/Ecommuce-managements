@@ -18,6 +18,7 @@ return new class extends Migration
                 $table->decimal('discount', 5, 2)->nullable(); // Percentage or fixed amount
                 $table->text('description')->nullable();
                 $table->decimal('price_after_discount', 8, 2)->nullable(); // Could be computed
+                $table->integer('stock')->default(0); // Ensure this column exists
                 $table->string('status'); // e.g., 'active', 'inactive'
                 $table->string('brand')->nullable();
                 $table->string('category')->nullable();

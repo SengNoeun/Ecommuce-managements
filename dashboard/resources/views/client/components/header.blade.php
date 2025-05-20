@@ -18,10 +18,10 @@
               <a href="{{route('client.cart.index')}}" class="navigation__link">CARD</a>
             </li>
              <li class="navigation__item">
-              <a href="index.html" class="navigation__link">ABOUT</a>
+              <a href="{{route('client.about.index')}}" class="navigation__link">ABOUT</a>
             </li>
             <li class="navigation__item">
-              <a href="index.html" class="navigation__link">CONTACT</a>
+              <a href="{{route('client.contact.index')}}" class="navigation__link">CONTACT</a>
             </li>
           </ul>
           

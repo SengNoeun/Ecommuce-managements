@@ -11,6 +11,9 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CartController;
 use App\Http\Middleware\userAuth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+
 // ***********************************************************
 // Route Products
 // ***********************************************************
@@ -26,8 +29,9 @@ Route::delete('/cart/remove/{id}', [CartController::class, 'removeItem'])->name(
 Route::get('/',[HeaderController::class ,'index'])->name('client.home.index');
 Route::get('client/shop/',[ShopController::class ,'index'])->name('client.shop.index');
 Route::get('client/cart/',[CartController::class ,'index'])->name('client.cart.index');
-Route::post('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');
-Route::delete('/cart/remove/{id}', [CartController::class, 'removeItem'])->name('cart.remove');
+
+Route::get('client/about',[AboutController::class,'index'])->name('client.about.index');
+ Route::get('client/contact',[ContactController::class,'index'])->name('client.contact.index');
 
 });
 Route::post('client/login',[UserController::class ,'login'])->name('client.login.index');

@@ -1,8 +1,8 @@
 <head>
-  <title>Surfside Media</title>
+ <title>WE SKIN</title>  {{--
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="author" content="surfside media" />
+  <meta name="author" content="surfside media" /> --}}
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 <link rel="shortcut icon" href="{{asset('assets/images/favicon.ico')}}" type="image/x-icon">

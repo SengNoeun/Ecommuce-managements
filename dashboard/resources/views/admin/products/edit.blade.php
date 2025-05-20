@@ -73,6 +73,14 @@
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
             </div>
+             <div class="mb-4">
+                <label for="stock" class="block text-sm font-medium text-gray-700 mb-1">Stock</label>
+                <input type="text" name="stock" id="stock" value="{{ old('stock', $product->stock) }}" required
+                    class="mt-1 block w-full px-3 text-gray-700 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm focus:ring-blue-500 focus:border-blue-500">
+                @error('stock')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
+            </div>
 
             <!-- Price -->
             <div class="mb-4">

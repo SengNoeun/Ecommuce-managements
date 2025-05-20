@@ -32,6 +32,11 @@
 
         <!-- Price -->
         <div class="mb-4">
+            <label for="stock" class="block text-sm font-medium text-gray-700 mb-1">stock</label>
+            <input type="number" name="stock" id="stock" value="{{ old('stock') }}" step="0.01" required
+                class="mt-1 block w-full text-gray-700  px-3 py-2 border border-gray-300 rounded-md shadow-sm sm:text-sm focus:ring-blue-500 focus:border-blue-500">
+        </div>
+        <div class="mb-4">
             <label for="price" class="block text-sm font-medium text-gray-700 mb-1">Price</label>
             <input type="number" name="price" id="price" value="{{ old('price') }}" step="0.01" required
                 class="mt-1 block w-full text-gray-700  px-3 py-2 border border-gray-300 rounded-md shadow-sm sm:text-sm focus:ring-blue-500 focus:border-blue-500">

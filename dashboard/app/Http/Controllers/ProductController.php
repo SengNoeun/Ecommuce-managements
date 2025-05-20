@@ -69,6 +69,7 @@ public function index()
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
+            'stock' => 'required|numeric',
             'price' => 'required|numeric',
             'discount' => 'nullable|numeric',
             'description' => 'nullable|string',
@@ -101,6 +102,7 @@ public function index()
             // Prepare data
             $data = [
                 'name' => $validated['name'],
+                'stock' => $validated['stock'],
                 'price' => $validated['price'],
                 'discount' => $validated['discount'],
                 'description' => $validated['description'],
@@ -132,6 +134,7 @@ public function index()
 
         $validated = $request->validate([
             'name' => 'required|string|max:255',
+            'stock' => 'required|numeric',
             'price' => 'required|numeric',
             'discount' => 'nullable|numeric',
             'description' => 'nullable|string',
@@ -193,6 +196,7 @@ public function index()
 
             $data = [
                 'name' => $validated['name'],
+                'stock' => $validated['stock'],
                 'price' => $validated['price'],
                 'discount' => $validated['discount'],
                 'description' => $validated['description'],
